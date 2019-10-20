@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+
+    <!-- header -->
+    <header th:replace="fragments/head :: head"/>
+
+    <th:block layout:fragment="css-addition"></th:block>
+
+</head>
+<body class="theme-white  fixed-header fixed-footer pace-done">
+<div id="theme-wrapper">
+
+    <!-- header -->
+    <header th:replace="fragments/header :: header"/>
+
+    <div id="page-wrapper" class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- sidebar -->
+                <div th:replace="fragments/sidebar :: sidebar"/>
+
+                <!-- content -->
+                <div id="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <th:block layout:fragment="content"></th:block>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of content -->
+                <footer th:replace="fragments/footer :: footer"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="fragments/js-common :: js-common"/>
+
+<!-- this page specific scripts -->
+<th:block layout:fragment="js-addition"></th:block>
+
+<!-- this page specific inline scripts -->
+
+</body>
+</html>

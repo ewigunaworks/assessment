@@ -1,0 +1,14 @@
+<th:block th:fragment="js-common">
+    <script th:src="@{/assets/vendors/jquery/dist/jquery.min.js}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script th:src="@{/assets/vendors/jquery-ui/jquery-ui.min.js}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.7 -->
+    <script th:src="@{/assets/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+    
+    <!-- AdminLTE App -->
+    <script th:src="@{/assets/js/adminlte.min.js}"></script>
+</th:block>
