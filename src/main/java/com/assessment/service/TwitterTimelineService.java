@@ -5,6 +5,11 @@
  */
 package com.assessment.service;
 
+import com.assessment.model.Tweets;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.Tweet;
@@ -21,8 +26,24 @@ public class TwitterTimelineService {
     @Autowired
     private Twitter twitter;
     
-    public List<Tweet> getHomeTimeline() {
+    public List<Tweets> getHomeTimeline() {
         List<Tweet> tweets = twitter.timelineOperations().getHomeTimeline();
-        return tweets;
+        System.out.println("SINIIII");
+        List<Tweets> newTweets = new ArrayList<Tweets>();
+        
+        System.out.println(tweets.size());
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+//        SimpleDateFormat parser = new SimpleDateFormat();
+        for(Tweet tw : tweets) {
+            Tweets twts = new Tweets();
+            twts.setTweetDateAt(tw.getCreatedAt());
+            twts.setTweet(tw.getText());
+            twts.setName(tw.getUser().getName());
+            twts.setScreenName(tw.getUser().getScreenName());
+            
+            newTweets.add(twts);
+        }
+        
+        return newTweets;
     }
 }

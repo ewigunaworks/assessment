@@ -26,6 +26,9 @@ public class Tweets {
     @Column(name = "tweet")
     private String tweet;
     
+    @Column(name = "name")
+    private String name;
+    
     @Column(name = "screen_name")
     private String screenName;
     
@@ -110,6 +113,12 @@ public class Tweets {
     public void setUpdatedBy(Integer updatedBy) {
         this.updatedBy = updatedBy;
     }
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
