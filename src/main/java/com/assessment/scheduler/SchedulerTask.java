@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +25,7 @@ public class SchedulerTask {
     @Autowired
     private TwitterTimelineService twitterTimelineService;
     
-    @Scheduled(fixedRate = 150000)
+    @Scheduled(fixedRateString = "${fixed.rate.timer}")
     public void scheduleTaskWithFixedRate() {
         twitterTimelineService.getHomeTimeline();
     }

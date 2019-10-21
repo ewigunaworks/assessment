@@ -36,15 +36,14 @@ public class TwitterRepositoryTest {
     
     @Test
     public void whenFindAllByOrderByTweetDateAtDesc_thenReturnTweetsList() {
-        List<Tweets> tweets = twitterRepository.findAllByOrderByTweetDateAtDesc();
-        assertThat(tweets).hasSizeGreaterThan(15);
+        List<Tweets> tweets = twitterRepository.findFirst20ByOrderByTweetDateAtDesc();
+        assertThat(tweets).hasSizeGreaterThan(10);
     }
     
     @Test
     public void whenFindFirstByTweetId_thenReturnTweets() {
         String id = "1128358947772145672";
         Tweets tweets = twitterRepository.findFirstByTweetId(id);
-        System.out.println(tweets);
         assertThat(tweets).isNull();
     }
 }

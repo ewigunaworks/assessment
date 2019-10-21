@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TwitterRepository extends JpaRepository<Tweets, Long>{
     List<Tweets> findAll();
-    List<Tweets> findAllByOrderByTweetDateAtDesc();
+    List<Tweets> findFirst20ByOrderByTweetDateAtDesc();
     List<Tweets> findByTweetId(String id);
     Tweets findFirstByTweetId(String id);
     Integer countByTweetId(String id);

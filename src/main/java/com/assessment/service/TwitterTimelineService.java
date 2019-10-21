@@ -56,7 +56,7 @@ public class TwitterTimelineService {
             }
         }
         
-        List<Tweets> newTweets = twitterRepository.findAllByOrderByTweetDateAtDesc();
+        List<Tweets> newTweets = twitterRepository.findFirst20ByOrderByTweetDateAtDesc();
         
         return newTweets;
     }
