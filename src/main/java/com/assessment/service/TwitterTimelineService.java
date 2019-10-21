@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author erwin.wiguna_gue
+ * @author erwin.wiguna
  */
 
 @Service

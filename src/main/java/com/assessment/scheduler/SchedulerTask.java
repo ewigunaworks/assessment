@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author erwin.wiguna_gue
+ * @author erwin.wiguna
  */
 @Component
 public class SchedulerTask {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author erwin.wiguna_gue
+ * @author erwin.wiguna
  */
 @Repository
 public interface TwitterRepository extends JpaRepository<Tweets, Long>{

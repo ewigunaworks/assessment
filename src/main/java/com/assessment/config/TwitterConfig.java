@@ -12,7 +12,7 @@ import org.springframework.social.twitter.api.impl.TwitterTemplate;
 
 /**
  *
- * @author erwin.wiguna_gue
+ * @author erwin.wiguna
  */
 @Configuration
 public class TwitterConfig {
