@@ -35,7 +35,8 @@ store those tweets in database. Spring Boot based project, using Thymeleaf and B
 
 ## How To Run
 ##### Run Development
-1. Run maven with goals
+1. Clean and Build the project first
+2. Run maven with goals
    ```bash
     spring-boot:run
    ```
