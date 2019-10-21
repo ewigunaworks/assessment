@@ -47,12 +47,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
                 
                 <dependency>
@@ -66,12 +60,6 @@
                     <groupId>org.thymeleaf</groupId>
                     <artifactId>thymeleaf</artifactId>
                     <version>3.0.11.RELEASE</version>
-                </dependency>
-                <!-- https://mvnrepository.com/artifact/org.twitter4j/twitter4j-stream -->
-                <dependency>
-                    <groupId>org.twitter4j</groupId>
-                    <artifactId>twitter4j-stream</artifactId>
-                    <version>4.0.7</version>
                 </dependency>
                 
                 <!-- https://mvnrepository.com/artifact/org.springframework.social/spring-social-twitter -->

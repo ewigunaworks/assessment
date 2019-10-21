@@ -6,6 +6,7 @@
 package com.assessment.service;
 
 import com.assessment.model.Tweets;
+import com.assessment.repository.TwitterRepository;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,23 +27,36 @@ public class TwitterTimelineService {
     @Autowired
     private Twitter twitter;
     
+    @Autowired
+    private TwitterRepository twitterRepository;
+    
     public List<Tweets> getHomeTimeline() {
         List<Tweet> tweets = twitter.timelineOperations().getHomeTimeline();
-        System.out.println("SINIIII");
-        List<Tweets> newTweets = new ArrayList<Tweets>();
         
-        System.out.println(tweets.size());
+//        List<Tweets> newTweets = new ArrayList<Tweets>();
+        
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 //        SimpleDateFormat parser = new SimpleDateFormat();
         for(Tweet tw : tweets) {
-            Tweets twts = new Tweets();
-            twts.setTweetDateAt(tw.getCreatedAt());
-            twts.setTweet(tw.getText());
-            twts.setName(tw.getUser().getName());
-            twts.setScreenName(tw.getUser().getScreenName());
             
-            newTweets.add(twts);
+            Tweets isExist = twitterRepository.findFirstByTweetId(tw.getIdStr());
+            if(isExist == null) {
+                Tweets twts = new Tweets();
+                twts.setTweetId(tw.getIdStr());
+                twts.setTweetDateAt(tw.getCreatedAt());
+                twts.setTweet(tw.getText());
+                twts.setName(tw.getUser().getName());
+                twts.setScreenName(tw.getUser().getScreenName());
+                twts.setCreatedAt(new Date());
+                twts.setUpdatedAt(new Date());
+                twts.setCreatedBy(1);
+                twts.setUpdatedBy(1);
+                
+                twitterRepository.save(twts);
+            }
         }
+        
+        List<Tweets> newTweets = twitterRepository.findAllByOrderByTweetDateAtDesc();
         
         return newTweets;
     }
