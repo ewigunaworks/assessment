@@ -1,4 +1,4 @@
-# MEKARI Java Developer Assessment Project
+# Developer Assessment Project
 
 This assessment project is an application that can fetch tweets regularly from Twitter and
 store those tweets in database. Spring Boot based project, using Thymeleaf and Bootstrap, PostgreSQL and Twitter API.
